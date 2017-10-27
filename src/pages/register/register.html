@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-item *ngIf="">
+    <h2></h2>
+  </ion-item>
+
+  <ion-item *ngIf="!showLoginButton">
+    <ion-label floating>User Name</ion-label>
+    <ion-input type="text" [(ngModel)]="user.displayName"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!showLoginButton">
+    <ion-label floating>Email Address</ion-label>
+    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="!showLoginButton">
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" [(ngModel)]="user.password"></ion-input>
+  </ion-item>
+
+  <button *ngIf="!showLoginButton" ion-button full (click)="register(user)">Register</button>
+  <button *ngIf="showLoginButton" ion-button full (click)="goToLogin()">Go to Login</button>
+</ion-content>

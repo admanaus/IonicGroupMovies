@@ -1,0 +1,63 @@
+<!--
+  Generated template for the MovieDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>MovieDetailPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<br>
+<ion-content  padding>
+  <ion-card *ngIf="movie">
+    <ion-item>
+      <ion-avatar *ngIf="posterURL" item-start>
+        <img src="{{posterURL}}">
+      </ion-avatar>
+      <h2>{{movie.original_title}}</h2>
+      <p>Released: {{movie.release_date}}</p>
+    </ion-item>
+    <ion-item style="text-align: center">
+      <img *ngIf="backdropURL" src="{{backdropURL}}">
+    </ion-item>
+
+
+    <ion-card-content>
+      <p>{{movie.overview}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col col-3>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{movie.vote_average}} / 10</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button icon-left clear small>
+          <ion-icon name="globe"></ion-icon>
+          <div>{{movie.vote_count}} Votes</div>
+        </button>
+      </ion-col>
+      <ion-col col-3>
+        <button ion-button icon-left clear small>
+          <ion-icon name="clock"></ion-icon>
+          <div>{{movie.runtime}} min</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card *ngIf="movie">
+    <h3 *ngIf="movieAdded" style="text-align: center"> Movie Added to your Favorites! </h3>
+    <button *ngIf="!movieAdded" ion-button full (click)=addMovie()>Add to My Favorites</button>
+    <button ion-button full (click)=gotoWebsite()>Official Website</button>
+    <button ion-button full (click)="gotoIMDB()" >IMDB</button>
+  </ion-card>
+
+
+</ion-content>
